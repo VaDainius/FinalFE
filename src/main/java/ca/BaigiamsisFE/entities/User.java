@@ -10,11 +10,6 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class User {
 
-    public enum Role {
-        ADMIN,
-        USER,
-        READER
-    }
 
     @NonNull
     private int id;
@@ -26,6 +21,6 @@ public class User {
     private String password;
 
     @NonNull
-    private Role role;
+    private String role;
 
 }
