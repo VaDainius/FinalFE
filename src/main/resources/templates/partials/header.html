@@ -1,0 +1,15 @@
+<header>
+  <nav>
+    <ul>
+      <li><a href="/main">Main page</a></li>
+      <li sec:authorize="isAnonymous()"><a href="/login">Log in</a></li>
+      <li sec:authorize="isAnonymous()"><a href="/register">Register</a></li>
+      <li sec:authorize="isAuthenticated()">
+        <a href="javascript: document.logoutForm.submit()">Logout</a>
+        <form data-th-action="@{/logout}" method="post" data-th-hidden="true">
+          <input hidden type="submit" value="logout">
+        </form>
+      </li>
+    </ul>
+  </nav>
+</header>
