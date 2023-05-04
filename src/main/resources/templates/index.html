@@ -7,11 +7,13 @@
     <body>
     <header th:replace="~{partials/header}"></header>
     <main>
-        <table>
-            <tr th:each="user: ${users}" th:object="${user}">
-                <td th:text="*{username}"></td>
-            </tr>
-        </table>
+
+        <div>
+            <table>
+                <tr th:each="role : ${roles}"></tr>
+                <td th:text="${role}"></td>
+            </table>
+        </div>
         <div></div>
     </main>
     </body>

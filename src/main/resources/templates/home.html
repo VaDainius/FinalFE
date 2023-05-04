@@ -4,7 +4,23 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
 >
     <head th:replace="~{partials/head(title='Home')}"></head>
-    <body >
+    <body>
+    <main>
+        <div>
+            <table>
+                <tr th:each="helmet: ${helmets}" th:object="${helmet}">
+                    <td th:text="*{manufacturer}"></td>
+                    <td th:text="*{model}"></td>
+                    <td th:text="*{size}"></td>
+                    <td th:text="*{type}"></td>
+                    <td th:text="*{status}"></td>
+                    <td th:text="*{color}"></td>
+                    <td th:text="*{itemDescription}"></td>
+                    <td th:text="*{price}"></td>
+                </tr>
+            </table>
+        </div>
+    </main>
 
     </body>
 </html>
