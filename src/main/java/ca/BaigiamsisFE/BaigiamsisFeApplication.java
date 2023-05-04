@@ -1,5 +1,6 @@
 package ca.BaigiamsisFE;
 
+import ca.BaigiamsisFE.entities.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -15,6 +16,11 @@ public class BaigiamsisFeApplication {
 	@Bean
 	RestTemplate restTemplate(){
 		return new RestTemplate();
+	}
+
+	@Bean
+	User user() {
+		return new User();
 	}
 
 }

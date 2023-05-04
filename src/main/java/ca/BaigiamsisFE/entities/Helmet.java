@@ -37,6 +37,4 @@ public class Helmet {
     @NonNull
     private int price;
 
-//    @NonNull
-//    private User user;
 }
