@@ -18,9 +18,5 @@ public class BaigiamsisFeApplication {
 		return new RestTemplate();
 	}
 
-	@Bean
-	User user() {
-		return new User();
-	}
 
 }
