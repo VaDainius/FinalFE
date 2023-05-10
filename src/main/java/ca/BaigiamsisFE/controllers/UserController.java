@@ -1,10 +1,12 @@
 package ca.BaigiamsisFE.controllers;
 
 import ca.BaigiamsisFE.entities.User;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.client.RestTemplate;
 
@@ -18,12 +20,15 @@ public class UserController {
     }
 
     @PostMapping("/register/newUser")
-    public String newUser(User user) {
+    public String newUser(User user, BindingResult errors) {
         HttpEntity<String> request =
                 new HttpEntity<>(user.toString(), new HttpHeaders());
 
         restTemplate.postForObject("http://localhost:8081/user/new", request, String.class);
-        return "redirect:/index";
+        if (errors.hasErrors()) {
+            return "/home";
+        }
+        return "redirect:/login";
     }
 
 }

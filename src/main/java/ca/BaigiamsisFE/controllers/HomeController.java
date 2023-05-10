@@ -31,19 +31,24 @@ public class HomeController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentUsername = authentication.getName();
 
-        var fromBE = restTemplate.getForObject("http://localhost:8081/helmets", Helmet[].class);
+        var fromBE = restTemplate.getForObject("http://localhost:8081/helmets", Helmet.class);
          model.addAttribute("helmets", fromBE);
 
-        return "/home";
+        return "/pages/home";
     }
+    @GetMapping("/login")
+   public String login(Model model) {
 
-//    @GetMapping("/login")
-//    public String login(Model model) {
-//        return "/login";
-//    }
+       var fromBE = restTemplate.getForObject("http://localhost:8081/users", User[].class);
+       model.addAttribute("users", fromBE);
+        return "/login";
+    }
 
     @GetMapping("/")
     public String returns(Model model) {
+        var getRol = restTemplate.getForObject("http://localhost:8081/users", User[].class);
+        logger.info(Arrays.stream(getRol).toList().toString());
+
         return "/index";
     }
 }
