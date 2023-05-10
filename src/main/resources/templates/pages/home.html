@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+>
+    <head th:replace="~{partials/head(title='Home')}"></head>
+    <body>
+        <header th:replace="~{partials/header}"></header>
+        <main>
+            <div sec:authorize="isAuthenticated()">
+                <p>
+                    <a th:href="@{/pages/newHelmet}">Create new listing</a>
+                </p>
+            </div>
+            <div class="helmet-all">
+                <table>
+                    <tr th:each="helmet: ${helmets}" th:object="${helmet}">
+                        <td th:text="*{manufacturer}"></td>
+                        <td th:text="*{model}"></td>
+                        <td th:text="*{size}"></td>
+                        <td th:text="*{type}"></td>
+                        <td th:text="*{status}"></td>
+                        <td th:text="*{color}"></td>
+                        <td th:text="*{itemDescription}"></td>
+                        <td th:text="*{price}"></td>
+                    </tr>
+                </table>
+
+            </div>
+        </main>
+    </body>
+</html>

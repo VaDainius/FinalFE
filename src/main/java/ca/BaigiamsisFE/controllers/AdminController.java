@@ -28,7 +28,7 @@ public class AdminController {
 
         var fromBE = restTemplate.getForObject("http://localhost:8081/users", User[].class);
 //        model.addAttribute(currentUsername);
-        model.addAttribute(fromBE);
+        model.addAttribute( "allUsers", fromBE);
         return "/pages/admin/allUsers";
     }
     @DeleteMapping("/admin/allUsers/{username}")
