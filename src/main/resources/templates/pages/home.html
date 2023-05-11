@@ -9,21 +9,23 @@
         <main>
             <div sec:authorize="isAuthenticated()">
                 <p>
-                    <a th:href="@{/pages/newHelmet}">Create new listing</a>
+                    <a th:href="@{/newHelmet}">Create new listing</a>
                 </p>
             </div>
-            <div class="helmet-all">
+            <div>
                 <table>
-                    <tr th:each="helmet: ${helmets}" th:object="${helmet}">
-                        <td th:text="*{manufacturer}"></td>
-                        <td th:text="*{model}"></td>
-                        <td th:text="*{size}"></td>
-                        <td th:text="*{type}"></td>
-                        <td th:text="*{status}"></td>
-                        <td th:text="*{color}"></td>
-                        <td th:text="*{itemDescription}"></td>
-                        <td th:text="*{price}"></td>
-                    </tr>
+                    <tbody class="helmet-table">
+                        <tr th:each="helmet: ${h}" th:object="${helmet}" class="helmet-all" >
+                            <td>Manufacturer: <span th:text="*{manufacturer}"></span></td>
+                            <td>Model: <span th:text="*{model}"></span></td>
+                            <td>Size: <span th:text="*{size}"></span></td>
+                            <td>Type: <span th:text="*{type}"></span></td>
+                            <td>Status: <span th:text="*{status}"></span> </td>
+                            <td>Color: <span th:text="*{color}"></span></td>
+                            <td>Item description: <span th:text="*{itemDescription}"></span></td>
+                            <td>Price: <span th:text="*{price}"></span> $</td>
+                        </tr>
+                    </tbody>
                 </table>
 
             </div>

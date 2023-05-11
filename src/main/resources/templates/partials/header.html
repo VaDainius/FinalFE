@@ -1,29 +1,24 @@
-<header>
+<header class="header-class">
   <nav>
-    <div sec:authorize="isAuthenticated()">Hi, <span sec:authentication="name">!</span></div>
+    <div class="header-user">
+      <div sec:authorize="isAuthenticated()">Hi, <span sec:authentication="name">!</span></div>
+      <div><button sec:authorize="isAnonymous()"><a th:href="@{/login}">Log in</a></button></div>
+      <div><button sec:authorize="isAnonymous()"><a th:href="@{/register}">Register</a></button></div>
+    </div>
     <div>
-      <ul>
-        <li><a th:href="@{/main}">Main page</a></li>
-        <li sec:authorize="isAnonymous()"><a th:href="@{/login}">Log in</a></li>
-        <li sec:authorize="isAnonymous()"><a th:href="@{/register}">Register</a></li>
-        <li sec:authorize="isAuthenticated()">
+      <div><button><a th:href="@{/main}">Main page</a></button></div>
+      <div>
+        <button sec:authorize="isAuthenticated()">
           <a href="javascript: document.logoutForm.submit()">Logout</a>
           <form data-th-action="@{/logout}" method="post" data-th-hidden="true">
             <input hidden type="submit" value="logout">
           </form>
-        </li>
-      </ul>
+        </button>
+      </div>
     </div>
     <div>
       <div>
-        <p>
-          <a th:href="@{/pages/home}">Home page</a>
-        </p>
-      </div>
-      <div>
-        <p>
-          <a th:href="@{/pages/cart}">Shopping cart</a>
-        </p>
+        <button><a th:href="@{/cart}">Shopping cart</a></button>
       </div>
 <!--      <div th:if="${#strings.contains(#authentication.principal.authorities, 'ADMIN')}">-->
 <!--        <p>-->
