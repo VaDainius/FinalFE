@@ -13,6 +13,6 @@ import java.util.List;
 public class Helmets {
 
     @NonNull
-    List<Helmet> helmets;
+    private List<Helmet> helmets;
 
 }
