@@ -24,14 +24,6 @@ public class HelmetController {
         this.restTemplate = restTemplate;
     }
 
-    @GetMapping("/helmets")
-    public ResponseEntity<Helmets> allHelmets() {
-        return new ResponseEntity<>(
-                restTemplate.getForObject("http://localhost:8081/helmets", Helmets.class),
-                HttpStatus.OK
-        );
-    }
-//
 //    @GetMapping("/helmets/price/{price}")
 //    public ResponseEntity<Helmet[]> helmetByPrice(@PathVariable int price) {
 //        return new ResponseEntity<>(
@@ -63,14 +55,5 @@ public class HelmetController {
 //        return "/pages/home";
 //    }
 //
-//    @PostMapping("/helmets/new")
-//    public String newHelmet(Helmet helmet, BindingResult errors) {
-//        HttpEntity<String> request =
-//                new HttpEntity<>(helmet.toString(), new HttpHeaders());
-//        restTemplate.postForObject("http://localhost:8081/user/new", request, String.class);
-//        if (errors.hasErrors()) {
-//            return "/helmets";
-//        }
-//        return "redirect:/";
-//    }
+
 }

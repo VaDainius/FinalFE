@@ -8,6 +8,22 @@
     <header th:replace="~{partials/header}"></header>
     <main>
         <div>this is cart</div>
+        <div>
+            <table>
+                <tbody class="helmet-table">
+                <tr th:each="shoppingCart: ${cart}" th:object="${shoppingCart}">
+                    <td>Manufacturer: <span th:text="*{manufacturer}"></span></td>
+                    <td>Model: <span th:text="*{model}"></span></td>
+                    <td>Size: <span th:text="*{size}"></span></td>
+                    <td>Type: <span th:text="*{type}"></span></td>
+                    <td>Status: <span th:text="*{status}"></span> </td>
+                    <td>Color: <span th:text="*{color}"></span></td>
+                    <td>Item description: <span th:text="*{itemDescription}"></span></td>
+                    <td>Price: <span th:text="*{price}"></span> $</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </main>
     </body>
 </html>

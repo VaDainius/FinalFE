@@ -2,13 +2,10 @@
   <nav>
     <div class="header-user">
       <div sec:authorize="isAuthenticated()">Hi, <span sec:authentication="name">!</span></div>
-      <div><button sec:authorize="isAnonymous()"><a th:href="@{/login}">Log in</a></button></div>
-      <div><button sec:authorize="isAnonymous()"><a th:href="@{/register}">Register</a></button></div>
-    </div>
-    <div>
-      <div><button><a th:href="@{/main}">Main page</a></button></div>
-      <div>
-        <button sec:authorize="isAuthenticated()">
+      <div sec:authorize="isAnonymous()"><button><a th:href="@{/login}">Log in</a></button></div>
+      <div sec:authorize="isAnonymous()"><button><a th:href="@{/register}">Register</a></button></div>
+      <div sec:authorize="isAuthenticated()">
+        <button>
           <a href="javascript: document.logoutForm.submit()">Logout</a>
           <form data-th-action="@{/logout}" method="post" data-th-hidden="true">
             <input hidden type="submit" value="logout">
@@ -16,10 +13,11 @@
         </button>
       </div>
     </div>
+    <div class="header-common-buttons">
+      <div><button><a th:href="@{/main}">All listings</a></button></div>
+      <div><button><a th:href="@{/cart}">Shopping cart</a></button></div>
+    </div>
     <div>
-      <div>
-        <button><a th:href="@{/cart}">Shopping cart</a></button>
-      </div>
 <!--      <div th:if="${#strings.contains(#authentication.principal.authorities, 'ADMIN')}">-->
 <!--        <p>-->
 <!--          <a th:href="@{/pages/admin/allUsers}">All users</a>-->
