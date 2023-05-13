@@ -24,5 +24,39 @@
     justify-content: space-between;
     align-items: flex-start;
     padding: 5px
+}
+.header-common-buttons {
+    display: flex;
+}
+.register-form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+    align-items: center;
+    flex-direction: column;
+    margin: 5px auto;
+    border: 1px solid black;
+    background-color: azure;
+    margin-top: 50px;
 
+}
+.register-button {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 10px;
+}
+.register-fields {
+    margin: 5px auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.input-center {
+    text-align: center;
+    margin-left: 10px
+}
+button {
+    margin: 2px auto;
 }

@@ -1,8 +1,6 @@
 package ca.BaigiamsisFE.controllers;
 
 import ca.BaigiamsisFE.entities.Helmet;
-import ca.BaigiamsisFE.entities.User;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -14,30 +12,30 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.client.RestTemplate;
 
 @Controller
-public class UserController {
+public class NewListingController {
 
     private final RestTemplate restTemplate;
 
-    public UserController(@Autowired RestTemplate restTemplate) {
+    public NewListingController(@Autowired RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
-    @GetMapping("/register")
-    public String newUser() {
-        return "/register";
+    @GetMapping("/newHelmet")
+    public String newListing() {
+        return "/pages/newHelmet";
     }
 
-    @PostMapping("/register")
-    public String register(User user, BindingResult errors) {
-        user.setRole("USER");
+    @PostMapping("/newHelmet")
+    public String newHelmet(Helmet helmet, BindingResult errors) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        HttpEntity<User> request = new HttpEntity<>(user, headers);
-        restTemplate.postForObject("http://localhost:8081/user/new", request, String.class);
+        HttpEntity<Helmet> request = new HttpEntity<>(helmet, headers);
+        restTemplate.postForObject("http://localhost:8081/helmet/new", request, String.class);
         if (errors.hasErrors()) {
-            return "/home";
+            return "/pages/home";
         }
-        return "redirect:/login";
+        return "redirect:/";
     }
+
 
 }

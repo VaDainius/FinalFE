@@ -8,9 +8,9 @@
         <header th:replace="~{partials/header}"></header>
         <main>
             <div sec:authorize="isAuthenticated()">
-                <p>
+                <buttton>
                     <a th:href="@{/newHelmet}">Create new listing</a>
-                </p>
+                </buttton>
             </div>
             <div>
                 <table>
