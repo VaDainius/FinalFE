@@ -34,7 +34,7 @@ public class NewListingController {
         if (errors.hasErrors()) {
             return "/pages/home";
         }
-        return "redirect:/";
+        return "redirect:/main";
     }
 
 

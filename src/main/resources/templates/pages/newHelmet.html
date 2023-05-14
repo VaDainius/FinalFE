@@ -7,17 +7,18 @@
     <body>
         <header th:replace="~{partials/header}"></header>
         <main>
-            <div>
+            <div class="new-listing-form">
                 <form th:action="@{/newHelmet}" method="post" th:object="${helmet}">
+                    <div class="image-login"><img src="/pictures/new.jpg" class="img-login"></div>
                     <h2>Add new listing</h2>
                     <div th:if="${param.error}">
                         <div style="color: red">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</div>
                     </div>
-                    <table>
-                        <tr>
-                            <td><input type="text" placeholder="Manufacturer" name="manufacturer"></td>
-                            <td><input type="text" placeholder="Model" name="model"></td>
-                            <td><select name="size">
+                    <div>
+                        <div class="span-input-new">
+                            <span class="span-new"><input class="input-center-new" type="text" placeholder="Manufacturer" name="manufacturer"></span>
+                            <span class="span-new"><input class="input-center-new" type="text" placeholder="Model" name="model"></span>
+                            <span class="span-new"><select name="size">
                                 <option value="" disabled selected hidden>Size</option>
                                 <option value="XS">XS</option>
                                 <option value="S">S</option>
@@ -26,8 +27,8 @@
                                 <option value="XL">XL</option>
                                 <option value="XXL">XXL</option>
                                 <option value="3XL">3XL</option>
-                            </select></td>
-                            <td><select name="type">
+                            </select></span>
+                            <span class="span-new"><select name="type">
                                 <option value="" disabled hidden selected>Type</option>
                                 <option value="motorcycle">motorcycle</option>
                                 <option value="bicycle">bicycle</option>
@@ -42,15 +43,14 @@
                                 <option value="racing">racing</option>
                                 <option value="safety">safety</option>
                                 <option value="war">war</option>
-
-                            </select></td>
-                            <td><input type="text" placeholder="Status" required name="status"></td>
-                            <td><input type="text" placeholder="Color" required name="color"></td>
-                            <td><input type="text" placeholder="Description" name="itemDescription"></td>
-                            <td><input type="text" placeholder="Price" required name="price"></td>
-                        </tr>
-                        <input type="submit" value="Create">
-                    </table>
+                            </select></span>
+                            <span class="span-new"><input class="input-center-new" type="text" placeholder="Status" required name="status"></span>
+                            <span class="span-new"><input class="input-center-new" type="text" placeholder="Color" required name="color"></span>
+                            <span class="span-new"><input class="input-center-new" type="text" placeholder="Description" name="itemDescription"></span>
+                            <span class="span-new"><input class="input-center-new" type="text" placeholder="Price" required name="price"></span>
+                            <span class="span-new"><input type="submit" value="Create"></span>
+                        </div>
+                    </div>
                 </form>
             </div>
         </main>

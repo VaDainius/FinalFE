@@ -6,28 +6,32 @@
   <head th:replace="~{partials/head(title='Login')}"></head>
   <body>
     <header th:replace="~{partials/header}"></header>
-    <div>
-      <div style="max-width: 450px; margin: 0 auto;">
-        <h1>Login</h1>
-        <form th:action="@{/login}" method="post">
-          <div th:if="${param.error}">
-            <div style="color: red;">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</div>
-          </div>
-          <table>
-            <tr>
-              <td>Username:</td>
-              <td><input type="text" name="username" required></td>
-            </tr>
-            <tr>
-              <td>Password:</td>
-              <td><input type="password" name="password" required></td>
-            </tr>
-            <tr>
-              <td><input type="submit" value="Login"></td>
-            </tr>
-          </table>
-        </form>
+    <main>
+      <div>
+        <div class="login">
+          <div class="image-login"><img src="/pictures/login1.jpg" class="img-login"></div>
+          <h1>Sign in</h1>
+          <form th:action="@{/login}" method="post">
+            <div th:if="${param.error}">
+              <div style="color: red;">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</div>
+            </div>
+            <table>
+              <tr>
+                <td>Username:</td>
+                <td><input type="text" name="username" required></td>
+              </tr>
+              <tr>
+                <td>Password:</td>
+                <td><input type="password" name="password" required></td>
+              </tr>
+            </table>
+            <span class="submit-login">
+              <input type="submit" value="Go">
+            </span>
+          </form>
+        </div>
       </div>
-    </div>
+    </main>
+
   </body>
 </html>
