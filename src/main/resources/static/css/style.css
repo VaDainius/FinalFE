@@ -7,9 +7,16 @@
     padding: 10px;
     border: 1px solid black;
     border-radius: 7px;
+    background-color: azure;
+
+
 }
 .helmet-table {
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 50px;
 }
 .header-class {
     border: 1px solid black;
@@ -36,8 +43,10 @@
     flex-direction: column;
     margin: 5px auto;
     border: 1px solid black;
-    background-color: azure;
+    background-color: lavender;
     margin-top: 50px;
+    border: 1px solid black;
+    border-radius: 10px;
 
 }
 .register-button {
@@ -53,10 +62,84 @@
     flex-wrap: wrap;
     justify-content: space-between;
 }
-.input-center {
+.input-center-register {
     text-align: center;
     margin-left: 10px
 }
 button {
     margin: 2px auto;
+}
+.new-listing-form {
+    background-color: lavender;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: space-around;
+    flex-wrap: wrap;
+    width: 400px;
+    margin: 10px auto;
+    border: 1px solid black;
+    border-radius: 10px;
+
+
+}
+.span-input-new {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.span-new {
+    margin-bottom: 10px;
+}
+.input-center-new {
+    text-align: center;
+}
+main{
+     background-image: url('/pictures/main.jpg');
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     position: fixed;
+     width: 100%;
+     height: -webkit-fill-available;
+}
+.login{
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: lavender;
+    max-width: 400px;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: space-around;
+}
+.submit-login {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+}
+.image-login {
+    display: flex;
+    justify-content: space-around;
+}
+.img-login {
+    width: 70px;
+    height: 70px;
+    border-radius: 40px;
+    margin-top: 10px;
+}
+.sold-out {
+    margin: 20px auto;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    width: fit-content;
+    padding: 10px;
+    background-color: indianred;
 }

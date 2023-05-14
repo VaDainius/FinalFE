@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,36 +25,41 @@ public class HelmetController {
         this.restTemplate = restTemplate;
     }
 
-//    @GetMapping("/helmets/price/{price}")
-//    public ResponseEntity<Helmet[]> helmetByPrice(@PathVariable int price) {
-//        return new ResponseEntity<>(
-//                restTemplate.getForObject("http://localhost:8081/helmet/price/" + price,
-//                        Helmet[].class),
-//                HttpStatus.OK
-//        );
-//    }
-//    @GetMapping("/helmets/size/{size}")
-//    public ResponseEntity<Helmet[]> helmetBySize(@PathVariable String size) {
-//        return new ResponseEntity<>(
-//                restTemplate.getForObject("http://localhost:8081/helmet/size/"+ size,
-//                        Helmet[].class),
-//                HttpStatus.OK
-//        );
-//    }
-//    @GetMapping("/helmets/color/{color}")
-//    public String  helmetByColor(@PathVariable String color, Model model) {
-//            var byColor = restTemplate.getForObject("http://localhost:8081/helmet/color/" + color,
-//                        Helmet[].class);
-//            model.addAttribute("helmets", byColor);
-//            return "/pages/home";
-//    }
-//    @GetMapping("/helmets/type/{type}")
-//    public String helmetByType (@PathVariable String type, Model model) {
-//         var byType = restTemplate.getForObject("http://localhost:8081/helmet/type/" + type,
-//                        Helmet[].class);
-//         model.addAttribute("helmets", byType);
-//        return "/pages/home";
-//    }
-//
+    @GetMapping("/helmets/price/{price}")
+    public ResponseEntity<Helmet[]> helmetByPrice(@PathVariable int price) {
+        return new ResponseEntity<>(
+                restTemplate.getForObject("http://localhost:8081/helmet/price/" + price,
+                        Helmet[].class),
+                HttpStatus.OK
+        );
+    }
+    @GetMapping("/helmets/size/{size}")
+    public ResponseEntity<Helmet[]> helmetBySize(@PathVariable String size) {
+        return new ResponseEntity<>(
+                restTemplate.getForObject("http://localhost:8081/helmet/size/"+ size,
+                        Helmet[].class),
+                HttpStatus.OK
+        );
+    }
+    @GetMapping("/helmets/color/{color}")
+    public String  helmetByColor(@PathVariable String color, Model model) {
+            var byColor = restTemplate.getForObject("http://localhost:8081/helmet/color/" + color,
+                        Helmet[].class);
+            model.addAttribute("helmets", byColor);
+            return "/pages/home";
+    }
+    @GetMapping("/helmets/type/{type}")
+    public String helmetByType (@PathVariable String type, Model model) {
+         var byType = restTemplate.getForObject("http://localhost:8081/helmet/type/" + type,
+                        Helmet[].class);
+         model.addAttribute("helmets", byType);
+        return "/pages/home";
+    }
+
+    @PostMapping("/main/delete")
+    public String deleteAll() {
+        restTemplate.delete("http://localhost:8081/helmets", HttpStatus.OK);
+        return "redirect:/main";
+    }
 
 }
