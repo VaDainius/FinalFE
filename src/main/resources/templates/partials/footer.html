@@ -1,3 +1,11 @@
-<footer>
-
+<footer class="footer-position">
+<!--    <ul class="option-bar text-center">-->
+<!--        <li class="nav-bar-option "><a data-th-href="@{/?lang=lt}">LT</a></li>-->
+<!--        <li class="nav-bar-option "><a data-th-href="@{/?lang=en}">EN</a></li>-->
+<!--    </ul>-->
+    <select id="languageSelect" class="language-select" onchange="changeLanguage()">
+        <option value="" disabled selected hidden><span th:text="#{language.select}"></span></option>
+        <option value="lt">LT</option>
+        <option value="en">EN</option>
+    </select>
 </footer>

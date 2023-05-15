@@ -12,14 +12,14 @@
       <div>
           <form th:action="@{/register}" method="post" th:object="${user}" class="register-form">
               <div><img src="/pictures/register1.jpg" class="img-login"></div>
-              <h2>Register new user</h2>
+              <h2 data-th-text="#{register.new}"></h2>
               <div th:if="${param.error}">
                   <div style="color: red">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</div>
               </div>
               <div>
                   <div>
                       <div class="register-fields">
-                          <label for="username">Enter username</label>
+                          <label for="username" data-th-text="#{register.username}"></label>
                           <input class="input-center-register"
                                  id="username"
                                  name="username"
@@ -29,7 +29,7 @@
                           >
                       </div>
                       <div class="register-fields">
-                          <label for="password">Create your password</label>
+                          <label for="password" data-th-text="#{register.password}"></label>
                           <input class="input-center-register"
                                  id="password"
                                  name="password"
@@ -39,10 +39,11 @@
                           >
                       </div>
                   </div>
-                  <div class="register-button"><input type="submit" value="Register"></div>
+                  <div class="register-button"><button data-th-text="#{register.submit}"></button></div>
               </div>
           </form>
       </div>
   </main>
+  <footer th:replace="~{partials/footer}"></footer>
   </body>
 </html>

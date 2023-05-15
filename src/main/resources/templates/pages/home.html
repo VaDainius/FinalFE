@@ -8,16 +8,15 @@
         <header th:replace="~{partials/header}"></header>
         <main>
             <div sec:authorize="isAuthenticated()">
-                <span>
-                    <button>
-                        <a th:href="@{/newHelmet}">Create new listing</a>
-                    </button>
-                </span>
+                <div>
+                    <form th:action="@{/newHelmet}" method="get" >
+                        <button th:text="#{home.listing}">
+                        </button>
+                    </form>
+                </div>
                 <div>
                     <form th:action="@{/main/delete}" method="post">
-                        <button>
-                            Delete all items
-                        </button>
+                        <button th:text="#{home.deleteAll}"></button>
                     </form>
                 </div>
             </div>
@@ -35,15 +34,15 @@
                             <td>Color: <span th:text="*{color}"></span></td>
                             <td>Item description: <span th:text="*{itemDescription}"></span></td>
                             <td>Price: <span th:text="*{price}"></span> $</td>
-                            <td>
+                            <td class="listing-actions">
                                 <div>
-                                    <form method="post">
-                                        <button><a th:href="@{/cart}"></a>Add to cart</button>
+                                    <form th:action="@{/cart}" method="post">
+                                        <button th:text="#{home.cart}"></button>
                                     </form>
                                 </div>
                                 <div>
                                     <form>
-                                        <button>Delete</button>
+                                        <button class="x-delete">X</button>
                                     </form>
                                 </div>
                             </td>
@@ -53,9 +52,10 @@
             </div>
             <div th:if="${#lists.isEmpty(h)}">
                 <div class="sold-out">
-                    <h1>Out of stock</h1>
+                    <h1 th:text="#{home.soldOut}"></h1>
                 </div>
             </div>
         </main>
+    <footer th:replace="~{partials/footer}"></footer>
     </body>
 </html>
