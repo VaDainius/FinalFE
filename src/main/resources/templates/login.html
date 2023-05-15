@@ -10,28 +10,28 @@
       <div>
         <div class="login">
           <div class="image-login"><img src="/pictures/login1.jpg" class="img-login"></div>
-          <h1>Sign in</h1>
+          <h1 data-th-text="#{login.signin}"></h1>
           <form th:action="@{/login}" method="post">
             <div th:if="${param.error}">
               <div style="color: red;">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</div>
             </div>
             <table>
               <tr>
-                <td>Username:</td>
+                <td data-th-text="#{login.username}"></td>
                 <td><input type="text" name="username" required></td>
               </tr>
               <tr>
-                <td>Password:</td>
+                <td data-th-text="#{login.password}"></td>
                 <td><input type="password" name="password" required></td>
               </tr>
             </table>
             <span class="submit-login">
-              <input type="submit" value="Go">
+              <button data-th-text="#{login.submit}"></button>
             </span>
           </form>
         </div>
       </div>
     </main>
-
+    <footer th:replace="~{partials/footer}"></footer>
   </body>
 </html>
